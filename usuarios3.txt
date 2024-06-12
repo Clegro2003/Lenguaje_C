@@ -1,0 +1,6 @@
+123456789,Rosa,Rueda,001
+456789123,Braulio,Barrios,001
+789123456,Carla,Urrego,002
+789123456,Carla,Martinez,787
+789123456,Carla,Porro,787
+789123456,Sofia,Urrego,787
