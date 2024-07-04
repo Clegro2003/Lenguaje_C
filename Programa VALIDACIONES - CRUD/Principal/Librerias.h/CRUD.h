@@ -39,7 +39,12 @@ void AgregarAleatorio();
 void AgregarDesdeArchivo();
 
 //Consulta de usuarios
+void menuConsultar();
 void Consultar();
+void Menor18();
+void mayoredad();
+void mayor60();
+void rango();
 
 //Actualizacion de datos
 void Modificar();

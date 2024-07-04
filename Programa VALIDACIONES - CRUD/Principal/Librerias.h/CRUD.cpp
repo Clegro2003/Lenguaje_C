@@ -178,7 +178,7 @@ void AgregarAleatorio() {
 
 //Registro Archivo
 void AgregarDesdeArchivo() {
-	ifstream arch("C:/Users/carlo/Downloads/CLASES/Programa VALIDACIONES - CRUD/Principal/Librerias.h/RegistroCabeceras.txt");
+	ifstream arch("RegistroCabeceras.txt");
 
 	if(!arch.is_open()){
 		cout<<"no se pudo abrir el archivo";getch();
@@ -225,12 +225,12 @@ void Consultar() {
 		gotoxy(10,0);
 		cout<<"Lista de personas registradas";
 		gotoxy(5,2);
-		cout<<"Identificacion  Tipo Documento   Nombre   Apellido    Sexo    Edad   Codigo Municipio     Correo Electronico";
+		cout<<"Identificacion  Tipo Documento   Nombre    Apellido   Sexo    Edad   Codigo Municipio     Correo Electronico";
 		for(i=0; i<lim; i++) {
 				gotoxy(7,3+i);cout<<persona[i].Identificacion;
 				gotoxy(25,3+i);cout<<persona[i].TipoIdentifiacion;
 				gotoxy(38,3+i);cout<<persona[i].Nombre;
-				gotoxy(47,3+i);cout<<persona[i].Apellido;
+				gotoxy(49,3+i);cout<<persona[i].Apellido;
 				gotoxy(61,3+i);cout<<persona[i].Sexo;
 				gotoxy(68,3+i);cout<<persona[i].Edad;
 				gotoxy(79,3+i);cout<<persona[i].CodigoMun;
@@ -238,6 +238,173 @@ void Consultar() {
 				cont++;
 		}
 		gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+	}
+	getch();
+}
+
+void Menor18(){
+	int cont=0, i=0;
+	system("cls");
+
+	if(lim==0) {
+		cout<<"no hay lista";
+	} else {
+
+		gotoxy(10,0);
+		cout<<"Lista de personas registradas";
+		gotoxy(5,2);
+		cout<<"Identificacion  Tipo Documento   Nombre    Apellido   Sexo    Edad   Codigo Municipio     Correo Electronico";
+		for(i=0; i<lim; i++) {
+			int edad = atoi(persona[i].Edad);
+			if(edad<18 and strcmp(persona[i].Edad, "") != 0){
+				gotoxy(7,3+cont);cout<<persona[i].Identificacion;
+				gotoxy(25,3+cont);cout<<persona[i].TipoIdentifiacion;
+				gotoxy(38,3+cont);cout<<persona[i].Nombre;
+				gotoxy(49,3+cont);cout<<persona[i].Apellido;
+				gotoxy(61,3+cont);cout<<persona[i].Sexo;
+				gotoxy(68,3+cont);cout<<persona[i].Edad;
+				gotoxy(79,3+cont);cout<<persona[i].CodigoMun;
+				gotoxy(94,3+cont);cout<<persona[i].Correo;
+				cont++;
+			}
+		}
+		gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+	}
+	getch();
+}
+void mayoredad(){
+	int cont=0, i=0;
+	system("cls");
+
+	if(lim==0) {
+		cout<<"no hay lista";
+	} else {
+
+		gotoxy(10,0);
+		cout<<"Lista de personas registradas";
+		gotoxy(5,2);
+		cout<<"Identificacion  Tipo Documento   Nombre    Apellido   Sexo    Edad   Codigo Municipio     Correo Electronico";
+		for(i=0; i<lim; i++) {
+			int edad = atoi(persona[i].Edad);
+			if(edad>18 and strcmp(persona[i].Edad, "") != 0){
+				gotoxy(7,3+cont);cout<<persona[i].Identificacion;
+				gotoxy(25,3+cont);cout<<persona[i].TipoIdentifiacion;
+				gotoxy(38,3+cont);cout<<persona[i].Nombre;
+				gotoxy(49,3+cont);cout<<persona[i].Apellido;
+				gotoxy(61,3+cont);cout<<persona[i].Sexo;
+				gotoxy(68,3+cont);cout<<persona[i].Edad;
+				gotoxy(79,3+cont);cout<<persona[i].CodigoMun;
+				gotoxy(94,3+cont);cout<<persona[i].Correo;
+				cont++;
+			}
+		}
+		gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+	}
+	getch();
+}
+
+void mayor60(){
+	int cont=0, i=0;
+	system("cls");
+
+	if(lim==0) {
+		cout<<"no hay lista";
+	} else {
+
+		gotoxy(10,0);
+		cout<<"Lista de personas registradas";
+		gotoxy(5,2);
+		cout<<"Identificacion  Tipo Documento   Nombre    Apellido   Sexo    Edad   Codigo Municipio     Correo Electronico";
+		for(i=0; i<lim; i++) {
+			int edad = atoi(persona[i].Edad);
+			if(edad>60 and strcmp(persona[i].Edad, "") != 0){
+				gotoxy(7,3+cont);cout<<persona[i].Identificacion;
+				gotoxy(25,3+cont);cout<<persona[i].TipoIdentifiacion;
+				gotoxy(38,3+cont);cout<<persona[i].Nombre;
+				gotoxy(49,3+cont);cout<<persona[i].Apellido;
+				gotoxy(61,3+cont);cout<<persona[i].Sexo;
+				gotoxy(68,3+cont);cout<<persona[i].Edad;
+				gotoxy(79,3+cont);cout<<persona[i].CodigoMun;
+				gotoxy(94,3+cont);cout<<persona[i].Correo;
+				cont++;
+			}
+		}
+		gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+	}
+	getch();
+}
+
+void rango(){
+	int cont=0, i=0,Rangos;
+	system("cls");
+
+	if(lim==0) {
+		cout<<"no hay lista";
+	} else {
+		
+		cout<<"Que rango de edades desea ver?\n1.Edad especifica\n2.Rango de edades\n";
+		cin>>Rangos;
+		
+		if(Rangos==1){
+			system("cls");
+			int r1;
+			cout<<"Digite la edad de los registros que desea ver: ";
+			cin>>r1;
+			system("cls");
+			gotoxy(10,0);cout<<"Lista de personas registradas";
+			gotoxy(5,2);
+			cout<<"Identificacion  Tipo Documento   Nombre   Apellido    Sexo    Edad   Codigo Municipio     Correo Electronico";
+			for(i=0; i<lim; i++) {
+				int edad = atoi(persona[i].Edad);
+				if(edad==r1 and strcmp(persona[i].Edad, "") != 0){
+					gotoxy(7,3+cont);cout<<persona[i].Identificacion;
+					gotoxy(25,3+cont);cout<<persona[i].TipoIdentifiacion;
+					gotoxy(38,3+cont);cout<<persona[i].Nombre;
+					gotoxy(47,3+cont);cout<<persona[i].Apellido;
+					gotoxy(61,3+cont);cout<<persona[i].Sexo;
+					gotoxy(68,3+cont);cout<<persona[i].Edad;
+					gotoxy(79,3+cont);cout<<persona[i].CodigoMun;
+					gotoxy(94,3+cont);cout<<persona[i].Correo;
+					cont++;
+				}
+			}
+			gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+			
+		}else if(Rangos==2){			
+			system("cls");
+			int r2,r3;
+			cout<<"Digite el rango edades de los registros que desea ver: ";
+			cin>>r2; gotoxy(58,0);cin>>r3;
+			system("cls");
+			gotoxy(10,0);
+			cout<<"Lista de personas registradas";
+			gotoxy(5,2);
+			cout<<"Identificacion  Tipo Documento   Nombre    Apellido   Sexo    Edad   Codigo Municipio     Correo Electronico";
+			for(i=0; i<lim; i++) {
+				int edad = atoi(persona[i].Edad);
+				if(edad>r2 and strcmp(persona[i].Edad, "" ) != 0 and edad<r3){
+					gotoxy(7,3+cont);cout<<persona[i].Identificacion;
+					gotoxy(25,3+cont);cout<<persona[i].TipoIdentifiacion;
+					gotoxy(38,3+cont);cout<<persona[i].Nombre;
+					gotoxy(49,3+cont);cout<<persona[i].Apellido;
+					gotoxy(61,3+cont);cout<<persona[i].Sexo;
+					gotoxy(68,3+cont);cout<<persona[i].Edad;
+					gotoxy(79,3+cont);cout<<persona[i].CodigoMun;
+					gotoxy(94,3+cont);cout<<persona[i].Correo;
+					cont++;
+				}
+			}
+			gotoxy(70,0);cout<<"Hay "<<cont<<" personas registradas";
+			
+		}else{
+			if(cin.fail() or Rangos < 1 or Rangos > 2) {
+					cin.clear(); // Limpia el estado de error de cin
+					cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta la entrada no válida
+					cout<<" opcion invalida!";
+					getch();
+					return;
+				}
+		}
 	}
 	getch();
 }

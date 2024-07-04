@@ -3,6 +3,15 @@
 #include "CRUD.h"
 
 void menu() {
+	HWND console = GetConsoleWindow();
+	
+    RECT r;
+    GetWindowRect(console, &r);
+    MoveWindow(console, r.left, r.top, 1080, 600, TRUE);
+	
+	SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
 	int a;
 
 	while(a != 5) {
@@ -18,7 +27,7 @@ void menu() {
 				menuAgregar();
 				break;
 			case 2:
-				Consultar();
+				menuConsultar();
 				break;
 			case 3:
 				Eliminar();
@@ -61,6 +70,45 @@ void menuAgregar() {
 				break;
 			case 4:
 				AgregarDesdeArchivo();
+				break;
+			case 5:
+				Consultar();
+				break;
+			default:
+				if(cin.fail() or a < 1 or a > 6) {
+					cin.clear(); // Limpia el estado de error de cin
+					cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta la entrada no válida
+					cout<<" opcion invalida!";
+					getch();
+					break;
+				}
+		}
+	}
+}
+
+void menuConsultar() {
+	int a;
+
+	while(a != 6) {
+		system("cls");
+
+		cout<<"Menu de Registro\n";
+		cout<<" 1.Menores de edad\n 2.Mayores de edad\n 3.Mayores de 60 anios\n 4.Rangos de edad\n 5.Consulta General\n 6.Volver\n"
+		    " Digite un numero acorde a su eleccion: ";
+		cin>>a;
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		switch(a) {
+			case 1:
+				Menor18();
+				break;
+			case 2:
+				mayoredad();
+				break;
+			case 3:
+				mayor60();
+				break;
+			case 4:
+				rango();
 				break;
 			case 5:
 				Consultar();
